@@ -34,4 +34,4 @@ struct CompanyElement: Codable{
     let name, catchprase, bs: String?
 }
 
-typealias listUserResponse = [UserResponseElement]
+typealias ListUserResponse = [UserResponseElement]

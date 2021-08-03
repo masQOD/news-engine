@@ -8,8 +8,10 @@
 import Foundation
 
 struct NewsObj{
+    var idPost: Int?
+    var idUser: Int?
     var title: String?
     var body: String?
-    var user_name: String?
-    var company_name: String?
+    var username: String?
+    var company: String?
 }
