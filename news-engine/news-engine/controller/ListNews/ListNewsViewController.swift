@@ -78,8 +78,7 @@ extension ListNewsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let news = self.listNews[indexPath.row]
-        let vc = DetailNewsViewController(nibName: "DetailNewsViewController", bundle: nil)
-        vc.news = news
+        let vc = DetailNewsViewController(news: news)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

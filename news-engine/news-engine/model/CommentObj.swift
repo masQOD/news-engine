@@ -8,8 +8,8 @@
 import Foundation
 
 struct CommentsObj {
-    var id: Int?
-    var name: String?
-    var email: String?
-    var body: String?
+    var id: Int
+    var name: String
+    var email: String
+    var body: String
 }

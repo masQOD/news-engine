@@ -8,8 +8,12 @@
 import Foundation
 
 // MARK: - CommentResponse
-struct CommentResponseElement: Codable{
-    
+struct CommentResponseElement: Codable {
+    let postId: Int?
+    let id: Int?
+    let name: String?
+    let email: String?
+    let body: String?
 }
 
 typealias ListCommentsResponse = [CommentResponseElement]

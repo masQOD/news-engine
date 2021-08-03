@@ -9,6 +9,7 @@ target 'news-engine' do
   pod 'Toast-Swift', '~> 3.0.1'     # https://github.com/scalessec/Toast-Swift
   pod 'Alamofire'                   # https://github.com/Alamofire/Alamofire
   pod 'SwiftyJSON'                  # https://github.com/SwiftyJSON/SwiftyJSON
+  pod 'Kingfisher'
   
   target 'news-engineTests' do
     inherit! :search_paths
