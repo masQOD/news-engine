@@ -14,4 +14,6 @@ struct NewsObj{
     var body: String?
     var username: String?
     var company: String?
+    var email: String?
+    var address: String?
 }

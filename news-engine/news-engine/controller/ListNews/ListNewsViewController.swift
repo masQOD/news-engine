@@ -135,8 +135,10 @@ extension ListNewsViewController {
                                 idUser: user.id ?? 0,
                                 title: post.title ?? "",
                                 body: post.body ?? "",
-                                username: user.username ?? "",
-                                company: user.company?.name ?? ""
+                                username: user.name ?? "",
+                                company: user.company?.name ?? "",
+                                email: user.email ?? "",
+                                address: "\(user.address?.street ?? ""), \(user.address?.suite ?? ""), \(user.address?.city ?? "") \(user.address?.zipcode ?? "")"
                             )
                         )
                     }

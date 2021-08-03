@@ -28,6 +28,10 @@
 		8BC7430E26B95964009726CA /* DetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC7430C26B95964009726CA /* DetailNewsViewController.xib */; };
 		8BC7431126B95983009726CA /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7430F26B95983009726CA /* UserDetailViewController.swift */; };
 		8BC7431226B95983009726CA /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC7431026B95983009726CA /* UserDetailViewController.xib */; };
+		8BC7431626B97AD9009726CA /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7431426B97AD9009726CA /* CommentsTableViewCell.swift */; };
+		8BC7431726B97AD9009726CA /* CommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC7431526B97AD9009726CA /* CommentsTableViewCell.xib */; };
+		8BC7431926B97B0C009726CA /* CommentObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7431826B97B0C009726CA /* CommentObj.swift */; };
+		8BC7431B26B97F8E009726CA /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7431A26B97F8E009726CA /* CommentResponse.swift */; };
 		D32C885599C320C1B8528749 /* Pods_news_engine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E5D335B79A64BBD83106E8 /* Pods_news_engine.framework */; };
 		E2FF5AF138BA3D6C4C39A444 /* Pods_news_engine_news_engineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA03C9B7573BD7E22D526E2 /* Pods_news_engine_news_engineUITests.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +83,10 @@
 		8BC7430C26B95964009726CA /* DetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailNewsViewController.xib; sourceTree = "<group>"; };
 		8BC7430F26B95983009726CA /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		8BC7431026B95983009726CA /* UserDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
+		8BC7431426B97AD9009726CA /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
+		8BC7431526B97AD9009726CA /* CommentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsTableViewCell.xib; sourceTree = "<group>"; };
+		8BC7431826B97B0C009726CA /* CommentObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentObj.swift; sourceTree = "<group>"; };
+		8BC7431A26B97F8E009726CA /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
 		8F2B59BD15B9277443330FEF /* Pods-news-engine-news-engineUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-news-engine-news-engineUITests.debug.xcconfig"; path = "Target Support Files/Pods-news-engine-news-engineUITests/Pods-news-engine-news-engineUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAA03C9B7573BD7E22D526E2 /* Pods_news_engine_news_engineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_news_engine_news_engineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB46C0375FD6DCF7BDBEF2F /* Pods_news_engineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_news_engineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,8 +203,10 @@
 			isa = PBXGroup;
 			children = (
 				8BC7430026B829DA009726CA /* NewsObj.swift */,
+				8BC7431826B97B0C009726CA /* CommentObj.swift */,
 				8BC7430726B91C99009726CA /* PostResponse.swift */,
 				8BC7430926B933E3009726CA /* UserResponse.swift */,
+				8BC7431A26B97F8E009726CA /* CommentResponse.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -204,6 +214,7 @@
 		8BC742F426B7CDB1009726CA /* view */ = {
 			isa = PBXGroup;
 			children = (
+				8BC7431326B97AB7009726CA /* ListComments */,
 				8BC742FB26B82161009726CA /* ListNews */,
 			);
 			path = view;
@@ -264,6 +275,15 @@
 				8BC7430526B83625009726CA /* Utils.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		8BC7431326B97AB7009726CA /* ListComments */ = {
+			isa = PBXGroup;
+			children = (
+				8BC7431426B97AD9009726CA /* CommentsTableViewCell.swift */,
+				8BC7431526B97AD9009726CA /* CommentsTableViewCell.xib */,
+			);
+			path = ListComments;
 			sourceTree = "<group>";
 		};
 		DCE98A82BB573A7D16E12B33 /* Frameworks */ = {
@@ -387,6 +407,7 @@
 				8BC7430E26B95964009726CA /* DetailNewsViewController.xib in Resources */,
 				8BC742CF26B7C265009726CA /* LaunchScreen.storyboard in Resources */,
 				8BC742CC26B7C265009726CA /* Assets.xcassets in Resources */,
+				8BC7431726B97AD9009726CA /* CommentsTableViewCell.xib in Resources */,
 				8BC742CA26B7C264009726CA /* Main.storyboard in Resources */,
 				8BC742FA26B8085D009726CA /* ListNewsViewController.xib in Resources */,
 				8BC7431226B95983009726CA /* UserDetailViewController.xib in Resources */,
@@ -523,9 +544,12 @@
 				8BC7430D26B95964009726CA /* DetailNewsViewController.swift in Sources */,
 				8BC7430826B91C99009726CA /* PostResponse.swift in Sources */,
 				8BC7430126B829DA009726CA /* NewsObj.swift in Sources */,
+				8BC7431926B97B0C009726CA /* CommentObj.swift in Sources */,
 				8BC7430626B83625009726CA /* Utils.swift in Sources */,
 				8BC742FE26B82195009726CA /* ListNewsTableViewCell.swift in Sources */,
+				8BC7431626B97AD9009726CA /* CommentsTableViewCell.swift in Sources */,
 				8BC742C526B7C264009726CA /* SceneDelegate.swift in Sources */,
+				8BC7431B26B97F8E009726CA /* CommentResponse.swift in Sources */,
 				8BC7430426B832E5009726CA /* Constants.swift in Sources */,
 				8BC7430A26B933E3009726CA /* UserResponse.swift in Sources */,
 				8BC7431126B95983009726CA /* UserDetailViewController.swift in Sources */,
