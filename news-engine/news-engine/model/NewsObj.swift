@@ -13,10 +13,3 @@ struct NewsObj{
     var user_name: String?
     var company_name: String?
 }
-
-struct Posts: Codable {
-    let userId: Int
-    let id: Int
-    let title: String?
-    let body: String?
-}

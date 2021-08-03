@@ -14,7 +14,8 @@ class ListNewsViewController: UIViewController {
     @IBOutlet weak var listNewsTable: UITableView!
     
     var listNews = [NewsObj]()
-    var listpost = [Posts]()
+    var listpost: [PostResponseElement] = []
+    var listUser: [UserResponseElement] = []
     private var refreshControl: UIRefreshControl!
     
     // MARK: - Initializer
@@ -60,14 +61,47 @@ class ListNewsViewController: UIViewController {
     }
     
     private func fetchData(){
-        AF.request(Contants.Endpoints.urlPosts).responseJSON(completionHandler: { (response) in
-            debugPrint(response.result)
-            if let json = JSON(response.result).array{
-                for obj in json{
-                    print(obj["body"].stringValue)
+        let ep = Contants.Endpoints.urlPosts
+        AF.request(ep).responseJSON(completionHandler: {
+            (response) in
+            let data = response.data
+
+            do{
+                let dataApi = try JSONDecoder().decode(ListPostsResponse.self, from: data!)
+                debugPrint(dataApi)
+                for index in 0..<dataApi.count{
+                    self.listpost.append(dataApi[index])
                 }
+                print("Success fetching \(self.listpost.count) data from \(ep)")
+                if self.listpost.isEmpty == false {
+                    self.fetchUser()
+                }
+            }catch{
+                print(response.error?.localizedDescription as Any)
             }
+        })
+    }
     
+    private func fetchUser(){
+        let ep = Contants.Endpoints.urlUsers
+        AF.request(ep).responseJSON(completionHandler: {
+            (response) in
+            let data = response.data
+            
+            do{
+                let dataUser = try JSONDecoder().decode(listUserResponse.self, from: data!)
+                debugPrint(dataUser)
+                for index in 0..<dataUser.count{
+                    self.listUser.append(dataUser[index])
+                }
+                print("Success fetching \(self.listpost.count) data from \(ep)")
+                if self.listUser.isEmpty == false{
+                    print(self.listUser)
+//                    if self.listpost.
+                }
+            } catch {
+                print(response.error?.localizedDescription as Any)
+            }
         })
     }
 }
