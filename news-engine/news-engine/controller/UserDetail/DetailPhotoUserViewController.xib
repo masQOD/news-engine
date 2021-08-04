@@ -22,27 +22,24 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rm0-Jm-PRu">
+                    <rect key="frame" x="12" y="810.5" width="390" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoc-wy-WoX">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="763"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paperplane" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3ZM-4W-sex">
-                            <rect key="frame" x="0.0" y="0.5" width="414" height="817.5"/>
+                            <rect key="frame" x="0.0" y="0.5" width="414" height="762.5"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rm0-Jm-PRu">
-                            <rect key="frame" x="8" y="756.5" width="398" height="21.5"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="rm0-Jm-PRu" secondAttribute="bottom" constant="40" id="4Fv-ft-bYb"/>
                         <constraint firstItem="3ZM-4W-sex" firstAttribute="centerY" secondItem="aoc-wy-WoX" secondAttribute="centerY" id="MxE-4t-kXa"/>
                         <constraint firstItem="3ZM-4W-sex" firstAttribute="top" secondItem="aoc-wy-WoX" secondAttribute="top" id="Ro4-Xr-ZnU"/>
-                        <constraint firstAttribute="trailing" secondItem="rm0-Jm-PRu" secondAttribute="trailing" constant="8" id="Vs6-ul-lN9"/>
                         <constraint firstAttribute="bottom" secondItem="3ZM-4W-sex" secondAttribute="bottom" id="iQD-pH-xUe"/>
                         <constraint firstAttribute="trailing" secondItem="3ZM-4W-sex" secondAttribute="trailing" id="oF6-Yy-Dw0"/>
-                        <constraint firstItem="rm0-Jm-PRu" firstAttribute="leading" secondItem="aoc-wy-WoX" secondAttribute="leading" constant="8" id="prA-X3-ieh"/>
                         <constraint firstItem="3ZM-4W-sex" firstAttribute="centerX" secondItem="aoc-wy-WoX" secondAttribute="centerX" id="qP8-0B-W6f"/>
                         <constraint firstItem="3ZM-4W-sex" firstAttribute="leading" secondItem="aoc-wy-WoX" secondAttribute="leading" id="vEe-5A-zig"/>
                     </constraints>
@@ -53,8 +50,11 @@
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aoc-wy-WoX" secondAttribute="trailing" id="4sq-3h-Cl6"/>
                 <constraint firstItem="aoc-wy-WoX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="7gD-BN-Dee"/>
+                <constraint firstItem="rm0-Jm-PRu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="8bL-4v-mKK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rm0-Jm-PRu" secondAttribute="bottom" constant="30" id="Izh-wu-ZWE"/>
                 <constraint firstItem="aoc-wy-WoX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="p95-LP-JUu"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aoc-wy-WoX" secondAttribute="bottom" id="tb6-pV-OLu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aoc-wy-WoX" secondAttribute="bottom" constant="55" id="tb6-pV-OLu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rm0-Jm-PRu" secondAttribute="trailing" constant="12" id="yJA-sQ-oIc"/>
             </constraints>
             <point key="canvasLocation" x="60.869565217391312" y="152.67857142857142"/>
         </view>
