@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class DetailPhotoUserViewController: UIViewController {
+class DetailPhotoUserViewController: UIViewController, UIScrollViewDelegate  {
 
     @IBOutlet weak var photoImg: UIImageView!
     @IBOutlet weak var imageScroolView: UIScrollView!
@@ -28,11 +28,23 @@ class DetailPhotoUserViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupView()
+        setupGesture()
     }
     
     private func setupView(){
         title = "Detail Photo"
         photoNameLabel.text = photoName
+        imageScroolView.delegate = self
+        imageScroolView.flashScrollIndicators()
+        imageScroolView.minimumZoomScale = 1.0
+        imageScroolView.maximumZoomScale = 4.0
+        photoImg.clipsToBounds = false
+    }
+    
+    private func setupGesture(){
+        let doubleTapGest = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTapScrollView(recognizer:)))
+        doubleTapGest.numberOfTapsRequired = 2
+        imageScroolView.addGestureRecognizer(doubleTapGest)
     }
     
     // MARK: OBJC FUNC
@@ -59,12 +71,9 @@ class DetailPhotoUserViewController: UIViewController {
         return self.photoImg
     }
     
-}
-
-extension DetailPhotoUserViewController{
     private func setData(photoUrl: String){
         let url = URL(string: photoUrl)
-        photoImg.load(url: url!)
+//        photoImg.load(url: url!)
     }
 }
 

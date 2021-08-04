@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailPhotoUserViewController" customModule="news_engine" customModuleProvider="target">
             <connections>
                 <outlet property="imageScroolView" destination="aoc-wy-WoX" id="fin-xe-NAF"/>
-                <outlet property="photoImg" destination="3ZM-4W-sex" id="W2s-qq-Xpf"/>
+                <outlet property="photoImg" destination="3ZM-4W-sex" id="KxV-gn-hWM"/>
                 <outlet property="photoNameLabel" destination="rm0-Jm-PRu" id="MTo-xA-XWH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
