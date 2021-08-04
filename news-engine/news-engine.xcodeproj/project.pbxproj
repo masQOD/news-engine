@@ -36,6 +36,8 @@
 		8BC7432126B99623009726CA /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7431F26B99623009726CA /* AlbumTableViewCell.swift */; };
 		8BC7432226B99623009726CA /* AlbumTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC7432026B99623009726CA /* AlbumTableViewCell.xib */; };
 		8BC7432426B99926009726CA /* AlbumResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7432326B99926009726CA /* AlbumResponse.swift */; };
+		8BC7432726BA63EA009726CA /* DetailPhotoUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7432526BA63EA009726CA /* DetailPhotoUserViewController.swift */; };
+		8BC7432826BA63EA009726CA /* DetailPhotoUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC7432626BA63EA009726CA /* DetailPhotoUserViewController.xib */; };
 		D32C885599C320C1B8528749 /* Pods_news_engine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E5D335B79A64BBD83106E8 /* Pods_news_engine.framework */; };
 		E2FF5AF138BA3D6C4C39A444 /* Pods_news_engine_news_engineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA03C9B7573BD7E22D526E2 /* Pods_news_engine_news_engineUITests.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +97,8 @@
 		8BC7431F26B99623009726CA /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
 		8BC7432026B99623009726CA /* AlbumTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumTableViewCell.xib; sourceTree = "<group>"; };
 		8BC7432326B99926009726CA /* AlbumResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumResponse.swift; sourceTree = "<group>"; };
+		8BC7432526BA63EA009726CA /* DetailPhotoUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoUserViewController.swift; sourceTree = "<group>"; };
+		8BC7432626BA63EA009726CA /* DetailPhotoUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPhotoUserViewController.xib; sourceTree = "<group>"; };
 		8F2B59BD15B9277443330FEF /* Pods-news-engine-news-engineUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-news-engine-news-engineUITests.debug.xcconfig"; path = "Target Support Files/Pods-news-engine-news-engineUITests/Pods-news-engine-news-engineUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAA03C9B7573BD7E22D526E2 /* Pods_news_engine_news_engineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_news_engine_news_engineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB46C0375FD6DCF7BDBEF2F /* Pods_news_engineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_news_engineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +270,8 @@
 			children = (
 				8BC7430F26B95983009726CA /* UserDetailViewController.swift */,
 				8BC7431026B95983009726CA /* UserDetailViewController.xib */,
+				8BC7432526BA63EA009726CA /* DetailPhotoUserViewController.swift */,
+				8BC7432626BA63EA009726CA /* DetailPhotoUserViewController.xib */,
 			);
 			path = UserDetail;
 			sourceTree = "<group>";
@@ -433,6 +439,7 @@
 				8BC742FA26B8085D009726CA /* ListNewsViewController.xib in Resources */,
 				8BC7431226B95983009726CA /* UserDetailViewController.xib in Resources */,
 				8BC742FF26B82195009726CA /* ListNewsTableViewCell.xib in Resources */,
+				8BC7432826BA63EA009726CA /* DetailPhotoUserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +580,7 @@
 				8BC742FE26B82195009726CA /* ListNewsTableViewCell.swift in Sources */,
 				8BC7431626B97AD9009726CA /* CommentsTableViewCell.swift in Sources */,
 				8BC742C526B7C264009726CA /* SceneDelegate.swift in Sources */,
+				8BC7432726BA63EA009726CA /* DetailPhotoUserViewController.swift in Sources */,
 				8BC7431B26B97F8E009726CA /* CommentResponse.swift in Sources */,
 				8BC7430426B832E5009726CA /* Constants.swift in Sources */,
 				8BC7430A26B933E3009726CA /* UserResponse.swift in Sources */,
@@ -682,7 +690,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -737,7 +745,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -796,7 +804,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8LCXQAP4CM;
 				INFOPLIST_FILE = "news-engineTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -819,7 +827,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8LCXQAP4CM;
 				INFOPLIST_FILE = "news-engineTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

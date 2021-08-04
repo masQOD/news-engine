@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Kingfisher
+import Toast_Swift
 
 class UserDetailViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
@@ -16,8 +17,8 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var albumTable: UITableView!
     
-    var news = NewsObj()
-    var albums = [AlbumsObj]()
+    private var news = NewsObj()
+    private var albums = [AlbumsObj]()
     
     convenience init(news: NewsObj){
         self.init(nibName: "UserDetailViewController", bundle: nil)
@@ -60,7 +61,12 @@ extension UserDetailViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let photoName = self.albums[indexPath.row].titlePhoto
+        let url = self.albums[indexPath.row].url
+        let vc = DetailPhotoUserViewController(albums: photoName, selectedPhoto: url)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension UserDetailViewController{
@@ -73,7 +79,8 @@ extension UserDetailViewController{
                 case let .success(data):
                     if let rawData = try? JSON(data).rawData() {
                         if let decoded = try? JSONDecoder().decode(ListAlbumsResponse.self, from: rawData) {
-
+                            self.view.makeToastActivity(.center)
+                            self.createAlbums(for: decoded)
                         }
                     }
                 case let .failure(error):
@@ -82,23 +89,59 @@ extension UserDetailViewController{
             }
     }
     
-    private func fetchPhoto(albumId: Int){
+    private func fetchPhoto(albumId: Int, completion: @escaping ((Result<Any, AFError>) -> Void)) {
         let url = Contants.Endpoints.urlPhotos+"?albumId=\(albumId)"
         AF.request(url)
             .validate()
             .responseJSON { response in
-                switch response.result {
-                case let .success(data):
-                    if let rawData = try? JSON(data).rawData() {
-                        if let decoded = try? JSONDecoder().decode(ListPhotosResponse.self, from: rawData) {
-
-                        }
-                    }
-                case let .failure(error):
-                    print(error.localizedDescription)
-                }
+                completion(response.result)
             }
+        
     }
     
-   
+    private func createAlbums(for albums: ListAlbumsResponse) {
+        
+        guard let album = albums.first else {
+            return
+        }
+        
+        self.fetchPhoto(albumId: album.id ?? 0) { result in
+            switch result {
+            case let .success(data):
+                if let rawData = try? JSON(data).rawData() {
+                    if let decoded = try? JSONDecoder().decode(ListPhotosResponse.self, from: rawData) {
+                        // Album Recursion
+                        self.createAlbums(for: Array(albums.dropFirst()))
+                        self.populatePhotos(with: decoded.reversed(), album: album)
+                    }
+                }
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func populatePhotos(with photos: ListPhotosResponse, album: AlbumResponseElement) {
+        guard let photo = photos.first else {
+            DispatchQueue.main.async {
+                self.albumTable.reloadData()
+                self.view.hideToastActivity()
+            }
+            return
+        }
+        
+        let albumObj = AlbumsObj(
+            userId: album.userId ?? 0,
+            albumId: album.id ?? 0,
+            titleAlbum: album.title ?? "",
+            photoId: photo.id ?? 0,
+            titlePhoto: photo.title ?? "",
+            url: photo.url ?? "",
+            thumbnailUrl: photo.thumbnailUrl ?? ""
+        )
+        // Photo Recursion
+        self.populatePhotos(with: Array(photos.dropFirst()), album: album)
+        self.albums.append(albumObj)
+    }
 }
+
