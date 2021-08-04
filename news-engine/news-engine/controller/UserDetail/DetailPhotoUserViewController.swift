@@ -14,14 +14,13 @@ class DetailPhotoUserViewController: UIViewController, UIScrollViewDelegate  {
     @IBOutlet weak var imageScroolView: UIScrollView!
     @IBOutlet weak var photoNameLabel: UILabel!
     
-    private var photoName: String = ""
-    private var selectedPhotoUrl: String = ""
+    private var photoName: String?
+    private var selectedPhotoUrl: String?
     
     convenience init(albums: String, selectedPhoto: String){
         self.init(nibName: "DetailPhotoUserViewController", bundle: nil)
         self.photoName = albums
         self.selectedPhotoUrl = selectedPhoto
-        self.setData(photoUrl: selectedPhotoUrl)
     }
     
     override func viewDidLoad() {
@@ -29,6 +28,7 @@ class DetailPhotoUserViewController: UIViewController, UIScrollViewDelegate  {
         // Do any additional setup after loading the view.
         setupView()
         setupGesture()
+        setData()
     }
     
     private func setupView(){
@@ -71,22 +71,10 @@ class DetailPhotoUserViewController: UIViewController, UIScrollViewDelegate  {
         return self.photoImg
     }
     
-    private func setData(photoUrl: String){
-        let url = URL(string: photoUrl)
-//        photoImg.load(url: url!)
-    }
-}
-
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
+    private func setData(){
+        if let imgUrl = selectedPhotoUrl, let url = URL(string: imgUrl.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed)!){
+            self.photoImg.kf.setImage(with: url, placeholder: UIImage.init(named: ""), options: [.transition(.fade(0))], progressBlock: nil, completionHandler: nil)
         }
     }
 }
+
